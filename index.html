@@ -229,30 +229,25 @@ a { text-decoration: none; color: inherit; }
   position:relative; z-index:2; width:100%;
   flex:1;
   display:flex; flex-direction:column;
-  align-items:center; justify-content:center;
+  align-items:flex-end; justify-content:center;
   padding:110px 28px 30px;
 }
 .about-body {
-  font-size:13px; line-height:2;
-  color:var(--black); text-align:center;
+  font-size:15px; line-height:2;
+  color:var(--black); text-align:right;
   letter-spacing:.03em; white-space:pre-line;
   max-width:420px;
 }
 .about-body p + p { margin-top:1.8em; }
 .about-ig {
   position:relative; z-index:3; flex-shrink:0;
-  display:block; width:fit-content; margin:24px auto 100px;
+  align-self:flex-end;
+  display:block; width:fit-content; margin:24px 28px 100px 0;
   font-size:11px; letter-spacing:.16em;
   color:var(--black); text-transform:uppercase;
   border-bottom:1px solid rgba(26,24,22,.32);
   padding-bottom:2px; white-space:nowrap;
 }
-.about-tags {
-  display:flex; justify-content:center; flex-wrap:wrap;
-  gap:8px 22px; margin-top:40px;
-}
-.about-tag { font-size:10px; letter-spacing:.16em; color:var(--mid); text-transform:uppercase; }
-.about-tag::before { content:'— '; }
 .about-overlay-title {
   position:relative; z-index:3; flex-shrink:0;
   padding:0 28px 24px;
@@ -262,34 +257,38 @@ a { text-decoration: none; color: inherit; }
   color:var(--black); line-height:1.15;
 }
 
-/* ── PROFILE ── */
-.prof-photo {
-  width:172px; height:172px; border-radius:50%;
+/* ── PRODUCTS ── */
+.prod-photo-wrap {
+  border-radius:6px; overflow:hidden;
+  margin-bottom:40px;
+}
+.prod-photo {
+  width:100%; aspect-ratio:4/3;
   object-fit:cover; display:block;
-  margin:0 auto 26px;
   background:#ccc8c2;
 }
-.prof-name {
+.prod-body {
+  font-size:13px; line-height:2;
+  color:var(--mid); text-align:center;
+  letter-spacing:.03em;
+  max-width:480px; margin:0 auto;
+}
+.prod-body p + p { margin-top:1.6em; }
+.prod-brand {
   font-family:'Cormorant Garamond',serif;
-  font-weight:400; font-size:22px;
-  letter-spacing:.1em; text-align:center;
-  margin-bottom:3px;
+  font-style:italic; font-weight:400;
+  letter-spacing:.06em; color:var(--black);
 }
-.prof-role {
-  font-size:9px; letter-spacing:.2em;
-  color:var(--light); text-align:center;
-  text-transform:uppercase; margin-bottom:28px;
+.prod-shop-link {
+  display:block; text-align:center;
+  margin-top:32px;
+  font-size:11px; letter-spacing:.16em;
+  color:var(--mid);
+  text-transform:uppercase;
+  border-bottom:1px solid var(--border);
+  width:fit-content; padding-bottom:2px;
+  margin-left:auto; margin-right:auto;
 }
-.prof-creds {
-  font-size:11px; color:var(--light);
-  text-align:center; line-height:1.9;
-  letter-spacing:.04em; margin-bottom:24px;
-}
-.prof-body {
-  font-size:13px; line-height:2.2;
-  color:var(--mid); letter-spacing:.03em;
-}
-.prof-body p + p { margin-top:1.1em; }
 
 /* ── TREATMENT MENU INDEX ── */
 .menu-index-grid {
@@ -419,11 +418,6 @@ a { text-decoration: none; color: inherit; }
 /* ── PC NAV LINKS (モバイルでは非表示) ── */
 .nav-pc-links { display: none; }
 
-/* ── PROFILE PC ELEMENTS (モバイルでは非表示) ── */
-.prof-img-wrap { display: none; }
-.prof-overlay-title { display: none; }
-.prof-text-wrap { display: contents; }
-
 /* ── VOICE LIST ── */
 .voice-list { display: block; }
 
@@ -518,38 +512,10 @@ a { text-decoration: none; color: inherit; }
   /* ── ABOUT ── */
   .about-inner { padding: 150px 60px 30px; }
   .about-overlay-title { padding: 0 60px 30px; font-size: 60px; }
-  .about-ig { margin-bottom: 100px; }
+  .about-ig { margin: 24px 60px 100px 0; }
 
-  /* ── PROFILE ── */
-  .prof-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 600px; padding: 0;
-    background: var(--white);
-  }
-  .prof-img-wrap { display: block; position: relative; overflow: hidden; }
-  .prof-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .prof-overlay-title {
-    display: block;
-    position: absolute; bottom: 60px; left: 60px;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic; font-weight: 300;
-    font-size: 44px; letter-spacing: .04em;
-    color: var(--white); line-height: 1.2;
-    text-shadow: 0 2px 30px rgba(0,0,0,.5);
-  }
-  .prof-text-wrap {
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 80px 70px;
-  }
-  .prof-text-wrap .sec-label,
-  .prof-text-wrap .sec-title,
-  .prof-text-wrap .sec-ja,
-  .prof-text-wrap .liner { display: none; }
-  .prof-text-wrap .prof-name,
-  .prof-text-wrap .prof-role,
-  .prof-text-wrap .prof-creds { text-align: left; }
-  .prof-text-wrap .prof-photo { margin: 0 0 20px; }
+  /* ── PRODUCTS ── */
+  .prod-photo-wrap { max-width: 640px; margin-left: auto; margin-right: auto; margin-bottom: 48px; }
 
   /* ── TREATMENT MENU ── */
   #menu { padding-bottom: 0; }
@@ -701,11 +667,6 @@ a { text-decoration: none; color: inherit; }
         <p>身体が温まると、心までふっと軽くなる。</p>
         <p>その想いから、このサロンをはじめました。</p>
       </div>
-      <div class="about-tags">
-        <span class="about-tag">完全個室</span>
-        <span class="about-tag">完全予約制</span>
-        <span class="about-tag">女性専用</span>
-      </div>
     </div>
     <div class="about-overlay-title">About<br>the salon</div>
     <a href="https://www.instagram.com/privatesalonmerci" target="_blank" class="about-ig">
@@ -727,36 +688,17 @@ a { text-decoration: none; color: inherit; }
     </svg>
   </div>
 
-  <!-- BEAUTY THERAPIST'S PROFILE -->
-  <section class="sec white reveal prof-section">
-    <!-- PC: 左カラム（写真＋オーバーレイタイトル） -->
-    <div class="prof-img-wrap">
-      <img src="img_facial2.jpg" alt="施術風景">
-      <div class="prof-overlay-title">Beauty<br>Therapist's<br>Profile</div>
+  <!-- PRODUCTS -->
+  <section class="sec cream reveal" id="products">
+    <div class="prod-photo-wrap">
+      <img src="img_herb.jpg" alt="サロン内観（仮画像）" class="prod-photo">
     </div>
-    <!-- PC: 右カラム / モバイル: 全幅 -->
-    <div class="prof-text-wrap">
-      <span class="sec-label">Beauty Therapist's Profile</span>
-      <h2 class="sec-title">オーナーより</h2>
-      <p class="sec-ja">プロフィール</p>
-      <div class="liner"></div>
-      <img
-        src="https://scontent-nrt1-2.cdninstagram.com/v/t51.75761-19/500327599_17886915015270828_5550590808537890350_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=102&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=teY5wsFAkxEQ7kNvwFFeJX5&_nc_oc=Adp4ac9Atk1UT5QGZL2wULmTA81EjaYLQOv4sLB2G7oOCTOlQDTJLaHcTIlK-mWige-SkyPq2FLbuccLUMTxGnPN&_nc_zt=24&_nc_ht=scontent-nrt1-2.cdninstagram.com&oh=00_Af_eTaOE2cxVZr3wqd3oaNwd9yTjSU0GVsURZJ9AiSL4RA&oe=6A3910F8"
-        alt="サロンオーナー" class="prof-photo"
-        onerror="this.style.background='#ccc8c2';this.removeAttribute('src');"
-      />
-      <p class="prof-name">サロンオーナー</p>
-      <p class="prof-role">Owner · Therapist · private salon merci</p>
-      <p class="prof-creds">
-        フェイシャルエステティシャン<br>
-        よもぎ蒸しアドバイザー<br>
-        元アスリートセラピスト
-      </p>
-      <div class="prof-body">
-        <p>merciでは、施術の技術はもちろん、あなたの体の声を聞き、一緒に"なりたい自分"へ近づくためのお手伝いをさせていただきます。</p>
-        <p>長年アスリートとして体と向き合ってきた経験から、筋膜・血流・リンパの流れを熟知した施術を行っています。毎回のカウンセリングで体調・肌状態・お悩みを丁寧にヒアリングし、その日のあなたに最適なケアをオーダーメイドで組み立てます。</p>
-      </div>
+    <div class="prod-body">
+      <p>肌にふれるもの、香りとして残るもの、<br>そしてそこにある空気感。<br>すべてに、妥協なく"美しさの余白"を宿らせたいと考えています。</p>
+      <p>お使いいただく化粧品は、<span class="prod-brand">LAËSSE</span>。<br>国内外から選りすぐられた、上質なプロダクトを厳選しています。</p>
+      <p>ぜひ、こだわりのプロダクトを五感で感じてください。</p>
     </div>
+    <a href="#" class="prod-shop-link">取扱化粧品のONLINE SHOPはこちら</a>
   </section>
 
   <!-- TREATMENT MENU INDEX -->
