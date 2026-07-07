@@ -329,6 +329,15 @@ a { text-decoration: none; color: inherit; }
   object-fit:cover; display:block;
   background:#ccc8c2;
 }
+.treatment-photo-grid {
+  width:100%; aspect-ratio:4/3;
+  display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr;
+  gap:2px; background:var(--border);
+}
+.treatment-photo-grid img,
+.treatment-photo-grid video {
+  width:100%; height:100%; object-fit:cover; display:block;
+}
 .treatment-body { padding:36px 40px 48px; }
 .treatment-label {
   display:block; font-size:10px;
@@ -409,6 +418,7 @@ a { text-decoration: none; color: inherit; }
 .contact-table td:first-child { width:76px; font-size:10px; letter-spacing:.14em; color:var(--light); text-transform:uppercase; padding-top:16px; }
 .contact-table a { color:var(--acc); }
 .map-placeholder { width:100%; height:200px; background:#e8e4de; display:flex; align-items:center; justify-content:center; font-size:11px; letter-spacing:.18em; color:var(--light); text-transform:uppercase; margin-bottom:32px; }
+.map-embed { width:100%; height:260px; border:0; display:block; margin-bottom:32px; filter:grayscale(20%); }
 
 /* ── FOOTER ── */
 .footer { background:#111; padding:44px 36px; text-align:center; }
@@ -537,6 +547,7 @@ a { text-decoration: none; color: inherit; }
   .treatment { display: grid; grid-template-columns: 2fr 3fr; min-height: 520px; }
   .treatment-photo { aspect-ratio: unset; height: 100%; object-fit: cover; }
   .treatment-photo-ph { aspect-ratio: unset; height: 100%; }
+  .treatment-photo-grid { aspect-ratio: unset; height: 100%; }
   .treatment-body { padding: 80px 80px; display: flex; flex-direction: column; justify-content: center; }
   .treatment-en { font-size: 36px; }
 
@@ -623,8 +634,7 @@ a { text-decoration: none; color: inherit; }
   <section class="hero" id="top">
     <img src="img_facial2.jpg" alt="merci" class="hero-img" id="heroPoster"/>
     <video class="hero-video" id="heroVideo" autoplay muted loop playsinline>
-      <source src="hero_video.mp4" type="video/mp4">
-      <source src="hero_video2.mp4" type="video/mp4">
+      <source src="hero_video3.mp4" type="video/mp4">
     </video>
     <div class="hero-content">
       <h1 class="hero-title">merci</h1>
@@ -693,7 +703,7 @@ a { text-decoration: none; color: inherit; }
   <!-- PRODUCTS -->
   <section class="sec cream reveal" id="products">
     <div class="prod-photo-wrap">
-      <img src="img_herb.jpg" alt="サロン内観（仮画像）" class="prod-photo">
+      <img src="img_products.png" alt="LAËSSE 取扱化粧品" class="prod-photo">
     </div>
     <div class="prod-body">
       <p>肌にふれるもの、香りとして残るもの、<br>そしてそこにある空気感。<br>すべてに、妥協なく"美しさの余白"を宿らせたいと考えています。</p>
@@ -712,7 +722,7 @@ a { text-decoration: none; color: inherit; }
   </section>
   <div class="menu-index-grid">
     <a href="#menu-1" class="menu-thumb">
-      <div class="menu-thumb-img photo-ph"><span>PHOTO</span></div>
+      <img src="img_yomogi.jpg" alt="よもぎ蒸し" class="menu-thumb-img">
       <div class="menu-thumb-body">
         <p class="menu-thumb-en">Yomogi Steam</p>
         <p class="menu-thumb-ja">よもぎ蒸し</p>
@@ -720,7 +730,7 @@ a { text-decoration: none; color: inherit; }
       </div>
     </a>
     <a href="#menu-2" class="menu-thumb">
-      <div class="menu-thumb-img photo-ph"><span>PHOTO</span></div>
+      <img src="img_facial_poster.jpg" alt="フェイシャル" class="menu-thumb-img">
       <div class="menu-thumb-body">
         <p class="menu-thumb-en">Facial</p>
         <p class="menu-thumb-ja">フェイシャル</p>
@@ -728,7 +738,7 @@ a { text-decoration: none; color: inherit; }
       </div>
     </a>
     <a href="#menu-3" class="menu-thumb">
-      <div class="menu-thumb-img photo-ph"><span>PHOTO</span></div>
+      <img src="img_decolte_poster.jpg" alt="セットメニュー" class="menu-thumb-img">
       <div class="menu-thumb-body">
         <p class="menu-thumb-en">Set Menu</p>
         <p class="menu-thumb-ja">セットメニュー</p>
@@ -736,7 +746,7 @@ a { text-decoration: none; color: inherit; }
       </div>
     </a>
     <a href="#menu-4" class="menu-thumb">
-      <div class="menu-thumb-img photo-ph"><span>PHOTO</span></div>
+      <img src="img_aroma_poster.jpg" alt="アロマトリートメント" class="menu-thumb-img">
       <div class="menu-thumb-body">
         <p class="menu-thumb-en">Aroma Treatment</p>
         <p class="menu-thumb-ja">アロマトリートメント</p>
@@ -747,7 +757,7 @@ a { text-decoration: none; color: inherit; }
 
   <!-- TREATMENT 1: よもぎ蒸し -->
   <div class="treatment reveal" id="menu-1">
-    <div class="treatment-photo-ph photo-ph"><span>PHOTO</span></div>
+    <img src="img_yomogi.jpg" alt="よもぎ蒸し" class="treatment-photo">
     <div class="treatment-body">
       <span class="treatment-label">Treatment Menu · よもぎ蒸し</span>
       <p class="treatment-en">Yomogi Steam</p>
@@ -771,7 +781,7 @@ a { text-decoration: none; color: inherit; }
 
   <!-- TREATMENT 2: フェイシャル -->
   <div class="treatment reveal" id="menu-2">
-    <div class="treatment-photo-ph photo-ph"><span>PHOTO</span></div>
+    <video class="treatment-photo lazy-video" muted loop playsinline preload="none" poster="img_facial_poster.jpg" data-src="video_facial.mp4"></video>
     <div class="treatment-body">
       <span class="treatment-label">Treatment Menu · フェイシャル</span>
       <p class="treatment-en">Facial</p>
@@ -790,7 +800,12 @@ a { text-decoration: none; color: inherit; }
 
   <!-- TREATMENT 3: セットメニュー -->
   <div class="treatment reveal" id="menu-3">
-    <div class="treatment-photo-ph photo-ph"><span>PHOTO</span></div>
+    <div class="treatment-photo-grid">
+      <video class="lazy-video" muted loop playsinline preload="none" poster="img_facial_poster.jpg" data-src="video_facial.mp4" aria-label="フェイシャル"></video>
+      <video class="lazy-video" muted loop playsinline preload="none" poster="img_decolte_poster.jpg" data-src="hero_video.mp4" aria-label="デコルテ"></video>
+      <video class="lazy-video" muted loop playsinline preload="none" poster="img_aroma_poster.jpg" data-src="video_aroma.mp4" aria-label="アロマ"></video>
+      <img src="img_yomogi.jpg" alt="よもぎ蒸し">
+    </div>
     <div class="treatment-body">
       <span class="treatment-label">Treatment Menu · セット</span>
       <p class="treatment-en">Set Menu</p>
@@ -824,7 +839,7 @@ a { text-decoration: none; color: inherit; }
 
   <!-- TREATMENT 4: アロマトリートメント -->
   <div class="treatment reveal" id="menu-4">
-    <div class="treatment-photo-ph photo-ph"><span>PHOTO</span></div>
+    <video class="treatment-photo lazy-video" muted loop playsinline preload="none" poster="img_aroma_poster.jpg" data-src="video_aroma.mp4"></video>
     <div class="treatment-body">
       <span class="treatment-label">Treatment Menu · アロマ</span>
       <p class="treatment-en">Aroma Treatment</p>
@@ -920,13 +935,13 @@ a { text-decoration: none; color: inherit; }
     <h2 class="sec-title">アクセス</h2>
     <p class="sec-ja">access</p>
     <div class="liner"></div>
-    <div class="map-placeholder">Map</div>
+    <iframe class="map-embed" src="https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%9D%BF%E6%A9%8B%E5%8C%BA%E5%BE%B3%E4%B8%B83%E4%B8%81%E7%9B%AE37-17%20%E3%82%B7%E3%83%B3%E3%83%88%E3%83%9F%E3%83%97%E3%83%A9%E3%82%B6%E5%BE%B3%E4%B8%B8&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
     <table class="contact-table">
       <tr><td>Salon</td><td><strong>private salon merci</strong></td></tr>
       <tr><td>Station</td><td><strong>東武東上線 東武練馬駅</strong><br>徒歩10分</td></tr>
-      <tr><td>Address</td><td>東京都板橋区 ○○-○○<br><small style="color:var(--light);font-size:11px;">※詳細は予約時にご案内します</small></td></tr>
-      <tr><td>Hours</td><td>○○:○○ — ○○:○○<br><small style="color:var(--light);font-size:11px;">（要予約・時間外相談可）</small></td></tr>
-      <tr><td>Holiday</td><td>不定休（Instagramにてお知らせ）</td></tr>
+      <tr><td>Address</td><td>〒175-0083<br>東京都板橋区徳丸３丁目３７−１７<br>シントミプラザ徳丸 210号室</td></tr>
+      <tr><td>Hours</td><td>9:00 — 17:00<br><small style="color:var(--light);font-size:11px;">（要予約・時間外相談可）</small></td></tr>
+      <tr><td>Holiday</td><td>年中無休</td></tr>
       <tr><td>Instagram</td><td><a href="https://www.instagram.com/privatesalonmerci" target="_blank">@privatesalonmerci</a></td></tr>
     </table>
   </section>
@@ -952,15 +967,29 @@ a { text-decoration: none; color: inherit; }
 </div>
 
 <script>
-/* ── ヒーロー動画 ── */
-const heroVideo = document.getElementById('heroVideo');
-if (heroVideo) {
-  heroVideo.muted = true;
-  heroVideo.play().catch(() => {});
-  document.addEventListener('touchstart', () => {
-    if (heroVideo.paused) heroVideo.play().catch(() => {});
-  }, { once: true });
-}
+/* ── 動画自動再生（ヒーロー） ── */
+const autoVideos = document.querySelectorAll('video[autoplay]');
+autoVideos.forEach(v => {
+  v.muted = true;
+  v.play().catch(() => {});
+});
+document.addEventListener('touchstart', () => {
+  autoVideos.forEach(v => { if (v.paused) v.play().catch(() => {}); });
+}, { once: true });
+
+/* ── 動画遅延読み込み（画面内に入ってから読み込み・再生） ── */
+const lazyVideos = document.querySelectorAll('video.lazy-video');
+const lv = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const v = entry.target;
+    v.src = v.dataset.src;
+    v.load();
+    v.play().catch(() => {});
+    lv.unobserve(v);
+  });
+}, { rootMargin: '200px 0px' });
+lazyVideos.forEach(v => lv.observe(v));
 
 /* ── ハンバーガーメニュー ── */
 const ham     = document.getElementById('navHam');
